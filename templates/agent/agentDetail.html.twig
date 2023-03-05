@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% set startDate = agent.hiringDate %}
+{% set difference = date( 'now' | date() ).diff(date(startDate))%}
+{% set leftYears = difference.y %}
+
+    {% block title %} {{ parent() }} | {{ agent.firstName }} {% endblock %}
+
+{% block body %}
+
+    <h2>{{ agent.firstName }} {{ agent.lastName }}</h2>
+
+    <div>
+        <div>
+            <img src="{{ asset('assets/profilPicture/' ~ agent.picture) }}" alt="Photo de {{ agent.firstName }} {{ agent.lastName }}">
+        </div>
+        <div>Nom : {{ agent.lastName }} </div>
+        <div>Prénom : {{ agent.firstName }} </div>
+        <div>Description : {{ agent.description }} </div>
+        <div>Date de naissance : {{ agent.birthDate | date('d-m-y')}} </div>
+        <div>ancienneté : {{ leftYears }} années</div>
+
+    </div>
+
+{% endblock %}
+
+

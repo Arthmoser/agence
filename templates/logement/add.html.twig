@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ parent() }} | Ajout annonce {% endblock %}
+
+{% block body %}
+
+    <h2>Ajout annonce</h2>
+
+    {#Début du form #}
+    {{ form_start(logementForm) }}
+
+
+    {{ form_rest(logementForm) }}
+
+    <button>Publier</button>
+
+    {#Fin du form #}
+    {{ form_end(logementForm) }}
+
+{% endblock %}
+
+

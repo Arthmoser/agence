@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ parent() }} | Logement n° {{ logement.id }} {% endblock %}
+
+{% block body %}
+
+    <div class="serie-details">
+        <div>
+            <img src="{{ asset('assets/logementPicture/' ~ logement.picture) }}" alt="Logement n°{{ logement.id }}">
+        </div>
+        <div class="serie-details-infos">
+            <h2>{{ logement.modality }} Logement n° {{ logement.id }}</h2>
+            <div>Superficie : {{ logement.surface }} m2</div>
+            <div>Nombre de pièce : {{ logement.numberOfRoom }}</div>
+            <div>Type de logement : {{ logement.type }}</div>
+            <div>Adresse : {{ logement.adress }}</div>
+            <div>Piscine : {{ logement.isSwimmingPool ? 'oui' : 'non' }}</div>
+            <div>Extérieur : {{ logement.isExterior ? logement.exteriorSurface ~ ' m2' : 'non' }}</div>
+            <div>Garage : {{ logement.isGarage ? 'oui' : 'non' }}</div>
+            <div>Prix : {{ logement.price }} €</div>
+            <div>Date de parution : {{ logement.releaseDate | date('d-m-y') }}</div>
+        </div>
+    </div>
+
+
+{% endblock %}

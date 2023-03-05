@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ parent() }} | Home {% endblock %}
+
+{% block body %}
+    <section class="series-list">
+        {% for logement in logements  %}
+
+
+            <article>
+                <div class="lodgingPicture">
+                    <a href="{{ path('logement_detail', {'id': logement.id}) }}">
+                        <img src="{{ asset('assets/logementPicture/' ~ logement.picture) }}" alt="Logement n°{{ logement.id }}">
+                    </a>
+                </div>
+                <div class="lodgingText">
+                    <div>{{ logement.modality == 'Vente' ? 'A vendre' : 'A louer' }} : {{ logement.type }}</div>
+                    <div>{{ logement.price | number_format(0, ' ', ' ' )}} €</div>
+                </div>
+            </article>
+        {% endfor %}
+    </section>
+
+{% endblock %}
+
+

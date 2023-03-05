@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ parent() }} | EQUIPE {% endblock %}
+
+{% block body %}
+
+    <h2>Notre équipe</h2>
+    <section class="series-list">
+        {% for agent in agents %}
+            <article>
+                <a href="{{ path('team_show', {'id': agent.id}) }}">
+                    <img src="{{ asset('assets/profilPicture/' ~ agent.picture) }}" alt="Photo de {{ agent.firstName }} {{ agent.lastName }}">
+                    <div class="texteNom">
+                        <div>{{ agent.lastName }}</div>
+                        <div>{{ agent.firstName }}</div>
+                    </div>
+                </a>
+            </article>
+
+        {% endfor %}
+    </section>
+
+{% endblock %}
+
+
+
+
